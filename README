@@ -1,0 +1,41 @@
+README - docs for my ThinkPad X301 environment: usage and maintenance
+
+file management:
+- view drives:			df -h
+- used space (current dir):	du -h
+- standard commands:		ls, cd, mkdir, touch, cat
+- editing:			nano <file>
+
+programs:
+- browsing the web		w3m <url>
+- sending mail:			mail -s "<subject>" (-a "<attachment>") "<recipient>"
+- hangouts:			hangups
+	sign-in:		python scripts/hangups_manual_login.py
+		# dev tools > application > cookies: look for "client_id"
+- reddit:			rtv
+- opening a gui:		startx /usr/bin/<program>
+	- close:		(sudo) killall /usr/bin/<program>
+			OR	(sudo) killall /usr/bin/xinit 
+
+network management:
+- start network manager:	(sudo) /usr/bin/NetworkManager --no-daemon
+	# start in tty0 or alternate process
+	process script:		scripts/nm_start.sh
+		stop process:	scripts/nm_stop.sh
+- list networks:		nmcli dev wifi
+- connect to a network:		nmcli dev wifi connect <ssid> (password <password>)
+	already added		nmcli connection up <ssid>
+- add a network			nmcli connection add type wifi con-name "<ssid>" ...
+
+power management:
+- battery info:			(sudo) tlp stat
+- charge thresholds:		(sudo) tlp setcharge <start> <end> [device]
+- usage:			(sudo) powertop
+- optimization:			(sudo) powertop --auto-tune
+
+display:
+- brightness:			(sudo) setpci -s 00:02.0 F4.B-<brightness (hex)>
+
+settings:
+- grub				(sudo) nano /etc/default/grub
+	update:			(sudo) grub-mkconfig -o /boot/grub/grub.cfg
