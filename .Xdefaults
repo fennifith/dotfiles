@@ -19,3 +19,5 @@ URxvt*font: xft:Roboto Mono:size=9:antialias=true
 *color13: #9944FF
 *color14: #33BBFF
 *color15: #FFFFFF
+
+URxvt.scrollBar: false
