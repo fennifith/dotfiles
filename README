@@ -1,9 +1,14 @@
-README - docs for my ThinkPad X301 environment: usage and maintenance
+This file is used to remind me of basic commands when I inevitably forget them. It is quite useful, especially when I can remember the title a command is under and simply "cat README | grep <thing I am trying to do>".
+
+Commands are formatted like this:
+	(suggestion) basic command <required argument> [optional argument]
+
+-----
 
 file management:
 - view drives:			df -h
 - used space (current dir):	du -h
-- standard commands:		ls, cd, mkdir, touch, cat
+- random things:		ls, cd, mkdir, touch, cat
 - editing:			nano <file>
 
 programs:
