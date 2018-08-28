@@ -1,5 +1,7 @@
 This file is used to remind me of basic commands when I inevitably forget them. It is quite useful, especially when I can remember the title a command is under and simply "cat README | grep <thing I am trying to do>".
 
+Nothing in this repo is licensed, but feel free to steal; I didn't write the programs these are for.
+
 Commands are formatted like this:
 	(suggestion) basic command <required argument> [optional argument]
 
