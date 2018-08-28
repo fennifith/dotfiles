@@ -44,3 +44,14 @@ display:
 settings:
 - grub				(sudo) nano /etc/default/grub
 	update:			(sudo) grub-mkconfig -o /boot/grub/grub.cfg
+
+development:
+- text editor			nano <file>
+- java compiler			javac <file>
+	- run			java <class>
+- gradle compiler		gradle build
+	- init			gradle init
+		# see templates/java/build.gradle for more info
+	- run			gradle -PmainClass=<package.ClassName> execute
+- C compiler			gcc -o <output> <file>
+	- find output source	source <output>

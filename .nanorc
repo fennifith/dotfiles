@@ -29,3 +29,4 @@ include /usr/share/nano/xml.nanorc
 
 set constantshow
 set linenumbers
+set nowrap

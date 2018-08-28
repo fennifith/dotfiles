@@ -42,6 +42,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+x kill
 
+# sleeeeeeeeeepy sleep
+bindsym $mod+Escape exec systemctl suspend
+
 # start dmenu (a program launcher)
 # bindsym Mod1+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
