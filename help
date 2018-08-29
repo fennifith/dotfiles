@@ -3,6 +3,7 @@ file management:
 - used space (current dir):	du -h
 - random things:		ls, cd, mkdir, touch, cat
 - editing:			nano <file>
+- viewing pdfs:			mupdf <file>
 
 programs:
 - browsing the web		w3m <url>
