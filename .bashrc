@@ -13,3 +13,6 @@ if [ -e ~/.bashrc.aliases ] ; then
 fi
 # >>> Added by cnchi installer
 EDITOR=/usr/bin/nano
+
+export GOPATH="/home/james/go"
+export PATH="$PATH:$GOPATH/bin"
