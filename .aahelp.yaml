@@ -1,0 +1,21 @@
+dev:
+    compile:
+        gradle: gradle build
+
+program:
+    web: w3m <url>
+    hangouts:
+        open: hangups
+        signin: python scripts/hangups_manual_login.py # cookie: client_id
+    reddit: rtv
+
+power:
+    info: tlp stat
+    thresholds: tlp setcharge <start> <end> [device]
+    usage: powertop
+    optimize: powertop --auto-tune
+
+settings:
+    grub:
+        edit: nano /etc/default/grub
+        update: grub-mkconfig -o /boot/grub/grub.cfg

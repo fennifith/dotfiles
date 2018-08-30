@@ -2,6 +2,8 @@ These are my dotfiles. You may look, but please do not touch. They bite.
 
 More seriously, despite not being licensed, feel free to steal anything from this repository; I didn't write the programs these are for.
 
-### /help
+Things:
 
-The 'help' file is used to remind me of basic commands when I inevitably forget them. It is quite useful, especially when I can remember the title a command is under and simply `cat README | grep <thing i am trying to do>`.
+- I use i3
+- Text editor is either nano or [micro](https://github.com/zyedidia/micro)
+- I keep track of all the things I forget, and then [scream](../../../AAH) when I can't remember them
