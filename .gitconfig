@@ -1,10 +1,14 @@
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
-  pager = true
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
 [user]
 	email = 18jafenn90@gmail.com
 	name = James Fenn
+[core]
+	autocrlf = input
+[diff]
+	colorMoved = dimmed_zebra
