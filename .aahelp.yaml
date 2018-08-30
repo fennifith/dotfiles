@@ -1,6 +1,8 @@
 dev:
     compile:
         gradle: gradle build
+    install:
+        aur: makepkg -si
 
 program:
     web: w3m <url>
