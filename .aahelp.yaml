@@ -5,6 +5,7 @@ dev:
         aur: makepkg -si
 
 program:
+    pdf: mupdf <file>
     web: w3m <url>
     hangouts:
         open: hangups
