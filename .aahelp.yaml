@@ -1,4 +1,4 @@
-dev:
+development:
     compile:
         gradle: gradle build
     install:
