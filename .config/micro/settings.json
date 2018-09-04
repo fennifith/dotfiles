@@ -10,6 +10,8 @@
     "fastdirty": true,
     "fileformat": "unix",
     "ftoptions": true,
+    "gofmt": true,
+    "goimports": false,
     "ignorecase": false,
     "indentchar": " ",
     "infobar": true,
@@ -18,6 +20,7 @@
     "linter": true,
     "literate": true,
     "matchbrace": false,
+    "misspell": true,
     "mouse": true,
     "pluginchannels": [
         "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
@@ -41,5 +44,6 @@
     "tabsize": 4,
     "tabstospaces": false,
     "termtitle": false,
+    "trimdiff": false,
     "useprimary": true
 }
