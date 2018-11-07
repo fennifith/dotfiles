@@ -9,8 +9,8 @@ URxvt*font: xft:Roboto Mono:size=9:antialias=true
 *color7:  #FFFFFF
 *color15: #FFFFFF
 ! red
-*color1:  #FF6347
-*color9:  #FF9C7A
+*color1:  #FF5252
+*color9:  #FF8A80
 ! green
 *color2:  #20B684
 *color10: #67EFB8
