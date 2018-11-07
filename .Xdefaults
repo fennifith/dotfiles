@@ -6,7 +6,7 @@ URxvt*font: xft:Roboto Mono:size=9:antialias=true
 ! gray/white
 *color0:  #404040
 *color8:  #808080
-*color7:  #FFFFFF
+*color7:  #F5F5F5
 *color15: #FFFFFF
 ! red
 *color1:  #FF5252
