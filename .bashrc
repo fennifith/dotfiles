@@ -8,13 +8,17 @@
 alias ls='ls --color=auto'
 
 # Prompt colors...
-BOLD="$(tput bold)"
+BLD="$(tput bold)"
+BLK="$(tput setaf 0)"
 RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-CYAN="$(tput setaf 6)"
+GRN="$(tput setaf 2)"
+YEL="$(tput setaf 3)"
+BLU="$(tput setaf 4)"
 MAG="$(tput setaf 5)"
+CYN="$(tput setaf 6)"
+WHT="$(tput setaf 7)"
 RESET="$(tput sgr0)"
-export PS1='${BOLD}${MAG}\W ${CYAN}\$${RESET} '
+export PS1='${CYN}$(pwd | sed "s|^$HOME*|~|") ${MAG}${BLD}(\u)${RESET} $ '
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
