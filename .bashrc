@@ -7,26 +7,39 @@
 
 alias ls='ls --color=auto'
 
-# Prompt colors...
-BLD="\[$(tput bold)\]"
-BLK="\[$(tput setaf 0)\]"
-RED="\[$(tput setaf 1)\]"
-GRN="\[$(tput setaf 2)\]"
-YEL="\[$(tput setaf 3)\]"
-BLU="\[$(tput setaf 4)\]"
-MAG="\[$(tput setaf 5)\]"
-CYN="\[$(tput setaf 6)\]"
-WHT="\[$(tput setaf 7)\]"
-LBLK="\[$(tput setaf 8)\]"
-LRED="\[$(tput setaf 9)\]"
-LGRN="\[$(tput setaf 10)\]"
-LYEL="\[$(tput setaf 11)\]"
-LBLU="\[$(tput setaf 12)\]"
-LMAG="\[$(tput setaf 13)\]"
-LCYN="\[$(tput setaf 14)\]"
-LWHT="\[$(tput setaf 15)\]"
-RESET="\[$(tput sgr0)\]"
-export PS1='${LMAG}\u${WHT}@${LCYN}\h${RESET} \$ '
+# Escaped ANSI colors...
+BLD="\[\e[21m\]"
+BLK="\[\e[30m\]"
+RED="\[\e[31m\]"
+GRN="\[\e[32m\]"
+YEL="\[\e[33m\]"
+BLU="\[\e[34m\]"
+MAG="\[\e[35m\]"
+CYN="\[\e[36m\]"
+WHT="\[\e[37m\]"
+LBLK="\[\e[90m\]"
+LRED="\[\e[91m\]"
+LGRN="\[\e[92m\]"
+LYEL="\[\e[93m\]"
+LBLU="\[\e[94m\]"
+LMAG="\[\e[95m\]"
+LCYN="\[\e[96m\]"
+LWHT="\[\e[97m\]"
+RESET="\[\e[0m\]"
+
+# Obtain current git branch
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		echo "[${BRANCH}] "
+	else
+		echo ""
+	fi
+}
+
+# Custom prompt
+export PS1="${LMAG}\u${WHT}@${LCYN}\h${RESET} \W ${YEL}\`parse_git_branch\`${RESET}\$ "
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
