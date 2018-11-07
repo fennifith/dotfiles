@@ -176,4 +176,5 @@ bar {
 }
 
 new_window 1pixel
+exec "xrandr --output VGA-1 --auto --left-of LVDS-1"
 exec urxvt

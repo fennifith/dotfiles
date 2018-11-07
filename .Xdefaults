@@ -15,8 +15,8 @@ URxvt*font: xft:Roboto Mono:size=9:antialias=true
 *color2:  #20B684
 *color10: #67EFB8
 ! orange
-*color3:  #CC8533
-*color11: #FFBA66
+*color3:  #FFDE03
+*color11: #FFFF5B
 ! blue
 *color4:  #0088FF
 *color12: #70BCFF
