@@ -3,22 +3,29 @@ URxvt*background: black
 
 URxvt*font: xft:Roboto Mono:size=9:antialias=true
 
+! gray/white
 *color0:  #404040
-*color1:  #BB0000
-*color2:  #33FF33
-*color3:  #AA3300
-*color4:  #0000BB
-*color5:  #662288
-*color6:  #008899
-*color7:  #FFFFFF
 *color8:  #808080
-*color9:  #FF3333
-*color10: #00BB00
-*color11: #FF6600
-*color12: #3333FF
-*color13: #9944FF
-*color14: #33BBFF
+*color7:  #FFFFFF
 *color15: #FFFFFF
+! red
+*color1:  #FF6347
+*color9:  #FF9C7A
+! green
+*color2:  #20B684
+*color10: #67EFB8
+! orange
+*color3:  #CC8533
+*color11: #FFBA66
+! blue
+*color4:  #0088FF
+*color12: #70BCFF
+! magenta
+*color5:  #D831B0
+*color13: #FF71E8
+! cyan
+*color6:  #008899
+*color14: #33BBFF
 
 URxvt.scrollBar: false
 
