@@ -11,10 +11,10 @@ alias ls='ls --color=auto'
 BOLD="$(tput bold)"
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"
-MAG="$(tput setaf 5)"
 CYAN="$(tput setaf 6)"
+MAG="$(tput setaf 5)"
 RESET="$(tput sgr0)"
-PS1='${BOLD}${MAG}\W ${CYAN}\$${RESET} '
+export PS1='${BOLD}${MAG}\W ${CYAN}\$${RESET} '
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
