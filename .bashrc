@@ -6,7 +6,15 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+
+# Prompt colors...
+BOLD="$(tput bold)"
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+CYAN="$(tput setaf 6)"
+MAG="$(tput setaf 5)"
+RESET="$(tput sgr0)"
+export PS1='[${BOLD}\u${RESET}-desu ${BOLD}${RED}\W${RESET}]\$ '
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
