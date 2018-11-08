@@ -173,18 +173,29 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3status
+
 	colors {
+#	   | class			   | bordr | bg    | text  |	
 		background			#000000
 		statusline			#FFFFFF
 		separator			#424242
-
+#	   |				   |       |       |       |	
 		focused_workspace	#20B684 #000000 #FFFFFF
 		active_workspace	#333333 #222222 #FFFFFF
 		inactive_workspace	#333333 #222222 #888888
-		urgent_workspace	#FFDE5B #FFDE03 #000000
+		urgent_workspace	#333333 #FF5252 #000000
 		binding_mode		#FFDE03 #FFDE5B #000000
 	}
 }
+
+# class				   | bordr | bg    | text  | indcr  | sub-brdr |
+client.focused          #20B684 #000000 #FFFFFF #20B684   #20B684
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #FF5252 #FF5252 #000000 #FF5252   #FF5252
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #000000
 
 new_window 1pixel
 exec "xrandr --output VGA-1 --auto --left-of LVDS-1"
