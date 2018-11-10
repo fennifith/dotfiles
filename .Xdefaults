@@ -1,7 +1,7 @@
 URxvt*foreground: white
 URxvt*background: black
 
-URxvt*font: xft:Roboto Mono:size=9:antialias=true
+URxvt*font: xft:Roboto Mono:size=8:antialias=true
 
 ! gray/white
 *color0:  #404040
