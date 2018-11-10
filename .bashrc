@@ -50,6 +50,7 @@ EDITOR=/usr/bin/nano
 # Ruby Gems
 export GEM_HOME="/home/james/gems"
 export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$PATH:/root/.gem/ruby/2.5.0/bin"
 
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
