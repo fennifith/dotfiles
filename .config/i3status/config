@@ -21,6 +21,7 @@ order += "disk /"
 order += "wireless wlp3s0"
 order += "ethernet enp0s25"
 order += "battery 0"
+order += "battery 1"
 order += "cpu_temperature 0"
 order += "tztime local"
 
@@ -36,6 +37,20 @@ ethernet enp0s25 {
 }
 
 battery 0 {
+	format						= "%percentage %status %remaining"
+	format_down					= "[ ]"
+	last_full_capacity			= true
+	integer_battery_capacity	= true
+	low_threshold				= 25
+	threshold_type				= percentage
+	hide_seconds				= true
+	status_chr					= "[+]"
+	status_bat					= "[-]"
+	status_unk					= "[?]"
+	status_full					= "[!]"
+}
+
+battery 1 {
 	format						= "%percentage %status %remaining"
 	format_down					= "[ ]"
 	last_full_capacity			= true
