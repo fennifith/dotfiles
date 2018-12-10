@@ -52,6 +52,8 @@ export GEM_HOME="/home/james/gems"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:/root/.gem/ruby/2.5.0/bin"
 export PATH="$PATH:~/.gem/ruby/2.5.0/bin"
+export PATH="$PATH:/home/james/flutter/bin"
+export PATH="$PATH:/home/james/bin"
 
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
