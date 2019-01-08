@@ -57,3 +57,7 @@ export PATH="$PATH:/home/james/bin"
 
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
+
+gcc() { /usr/bin/gcc "$1" -Wall -Werror -o $(echo "$1" | cut -f 1 -d '.'); }
+
+gccx() { gcc $1 && command "./$(echo "$1" | cut -f 1 -d '.')"; }
