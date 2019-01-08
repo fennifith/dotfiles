@@ -56,15 +56,15 @@ export PATH="$PATH:/home/james/flutter/bin"
 export PATH="$PATH:/home/james/bin"
 
 export GOPATH="/home/james/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # ----- gcc aliases -----
 
 # gcc - acts as an alias of gcc; enables all warning flags, treats warnings as
-# errors, and sets the output file to the name of the source file.
+#       errors, and sets the output file to the name of the source file.
 #
 # Arguments should be passed to this alias after the name of the source file,
-# not before it; while gcc doesn't explicitly state it, it does accept files
+# not before it; while gcc doesn't explicitly state it, it does accept the source
 # as the first argument, allowing additional arguments to be set with an alias
 # without breaking the format.
 #
@@ -74,7 +74,9 @@ export PATH="$PATH:$GOPATH/bin"
 #
 #   gcc test.c --std=c99          Creates one binary, "./test", using c99.
 #
-gcc() { /usr/bin/gcc $@ -Wall -Werror -o $(echo "$1" | cut -f 1 -d '.'); }
+gcc() { /usr/bin/gcc $@ -Wall -Werror -o ${1%.*}; }
 
 # gccx - runs gcc (the alias above), then executes the compiled binary.
-gccx() { gcc $@ && command "./$(echo "$1" | cut -f 1 -d '.')"; }
+#        Will almost definitely break if run with a non-relative path, e.g.
+#        "~/test.c" or "/home/james/test.c".
+gccx() { gcc $@ && command "./${1%.*}"; }
