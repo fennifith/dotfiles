@@ -56,7 +56,7 @@ export PATH="$PATH:/home/james/flutter/bin"
 export PATH="$PATH:/home/james/bin"
 
 export GOPATH="/home/james/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # ----- gcc aliases -----
 
