@@ -58,6 +58,23 @@ export PATH="$PATH:/home/james/bin"
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
 
-gcc() { /usr/bin/gcc "$1" -Wall -Werror -o $(echo "$1" | cut -f 1 -d '.'); }
+# ----- gcc aliases -----
 
-gccx() { gcc $1 && command "./$(echo "$1" | cut -f 1 -d '.')"; }
+# gcc - acts as an alias of gcc; enables all warning flags, treats warnings as
+# errors, and sets the output file to the name of the source file.
+#
+# Arguments should be passed to this alias after the name of the source file,
+# not before it; while gcc doesn't explicitly state it, it does accept files
+# as the first argument, allowing additional arguments to be set with an alias
+# without breaking the format.
+#
+# Ex:
+#   gcc --std=c99 test.c          Creates two binaries, "./--std=c99" and "./test",
+#                                 both of which contain the binary of "./test.c".
+#
+#   gcc test.c --std=c99          Creates one binary, "./test", using c99.
+#
+gcc() { /usr/bin/gcc $@ -Wall -Werror -o $(echo "$1" | cut -f 1 -d '.'); }
+
+# gccx - runs gcc (the alias above), then executes the compiled binary.
+gccx() { gcc $@ && command "./$(echo "$1" | cut -f 1 -d '.')"; }
