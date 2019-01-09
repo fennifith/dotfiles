@@ -60,12 +60,12 @@ export PATH="$PATH:$GOPATH/bin"
 
 # ----- gcc aliases -----
 
-# gcc - acts as an alias of gcc; enables all warning flags, treats warnings as
-#       errors, and sets the output file to the name of the source file.
+# gcc  - acts as an alias of gcc; enables all warning flags, treats warnings as
+#        errors, and sets the output file to the name of the source file.
 #
 # Arguments should be passed to this alias after the name of the source file,
 # not before it; while gcc doesn't explicitly state it, it does accept the source
-# as the first argument, allowing additional arguments to be set with an alias
+# as the first argument, allowing additional arguments to be passed to this alias
 # without breaking the format.
 #
 # Ex:
@@ -77,6 +77,4 @@ export PATH="$PATH:$GOPATH/bin"
 gcc() { /usr/bin/gcc $@ -Wall -Werror -o ${1%.*}; }
 
 # gccx - runs gcc (the alias above), then executes the compiled binary.
-#        Will almost definitely break if run with a non-relative path, e.g.
-#        "~/test.c" or "/home/james/test.c".
-gccx() { gcc $@ && command "./${1%.*}"; }
+gccx() { gcc $@ && command $(realpath "${1%.*}"); }
