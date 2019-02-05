@@ -1,7 +1,7 @@
 URxvt*foreground: white
 URxvt*background: black
 
-URxvt*font: xft:Roboto Mono:size=8:antialias=true
+URxvt*font: xft:Roboto Mono:size=8:antialias=true, xft:Noto Color Emoji:pixelsize=10
 
 ! gray/white
 *color0:  #404040

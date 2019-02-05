@@ -37,7 +37,7 @@ set $right semicolon
 floating_modifier Mod1
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+x kill
@@ -210,4 +210,4 @@ client.background       #000000
 
 new_window 1pixel
 exec "xrandr --output VGA-1 --auto --left-of LVDS-1"
-exec urxvt
+exec termite
