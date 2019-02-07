@@ -183,7 +183,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+	font pango:Roboto Mono, FontAwesome 8
+	position bottom
+	status_command /usr/bin/i3status-rs ~/.config/i3status-rs/config.toml
 
 	colors {
 #	   | class			   | bordr | bg    | text  |	
