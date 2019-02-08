@@ -1,6 +1,11 @@
 [theme]
 name = "modern"
 [theme.overrides]
+idle_bg = "#212121"
+info_bg = "#70BCFF"
+good_bg = "#67EFB8"
+warning_bg = "#FFFF5B"
+critical_bg = "#FF5252"
 separator = ""
 
 [icons]
@@ -17,11 +22,9 @@ format = " {weather} {temp}°"
 service = { name = "openweathermap", api_key = "$(cat ~/keys/openweathermap)", city_id="5206379", units="metric" }
 
 [[block]]
-block = "net"
-device = "$(iw dev | awk '$1=="Interface"{print $2}')"
-ssid = true
-speed_up = false
-speed_down = false
+block = "custom"
+command = "echo \"\$(echo -e '\\uF1EB') \$(iwgetid -r)\""
+interval = 2
 
 [[block]]
 block = "disk_space"
