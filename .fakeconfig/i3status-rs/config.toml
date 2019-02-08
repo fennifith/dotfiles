@@ -1,12 +1,12 @@
 [theme]
 name = "modern"
 [theme.overrides]
+separator = "<span font='10'></span>"
 idle_bg = "#212121"
 info_bg = "#70BCFF"
 good_bg = "#67EFB8"
 warning_bg = "#FFFF5B"
 critical_bg = "#FF5252"
-separator = ""
 
 [icons]
 name = "awesome"
