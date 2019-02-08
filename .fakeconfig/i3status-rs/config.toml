@@ -2,6 +2,18 @@ theme = "plain"
 icons = "awesome"
 
 [[block]]
+block = "weather"
+format = "{weather} {temp}°, {wind} m/s {direction}"
+service = { name = "openweathermap", api_key = "$(cat ~/keys/openweathermap)", city_id="5206379", units="metric" }
+
+[[block]]
+block = "net"
+device = "$(iw dev | awk '$1=="Interface"{print $2}')"
+ssid = true
+speed_up = false
+speed_down = false
+
+[[block]]
 block = "disk_space"
 path = "/"
 alias = "/"
@@ -25,6 +37,9 @@ interval = 1
 block = "load"
 interval = 1
 format = "{1m}"
+
+[[block]]
+block = "uptime"
 
 [[block]]
 block = "sound"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for folder in ~/.fakeconfig/*; do
+fname=${folder##*/}
+mkdir ~/.config/$fname && :
+for file in $folder/*; do
+name=${file##*/}
+eval "cat << EOF
+$(<$file)
+EOF
+" > ~/.config/$fname/$name
+done
+done
