@@ -1,7 +1,7 @@
 [theme]
 name = "modern"
 [theme.overrides]
-separator = ""
+separator = "<span font='10'></span>"
 idle_bg = "#212121"
 info_bg = "#70BCFF"
 good_bg = "#67EFB8"
