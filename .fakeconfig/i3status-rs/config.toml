@@ -1,7 +1,7 @@
 [theme]
 name = "modern"
 [theme.overrides]
-separator = "  "
+separator = " "
 separator_fg = "#FFFFFF"
 separator_bg = "#212121"
 idle_bg = "#212121"
@@ -18,10 +18,10 @@ time = ""
 [[block]]
 block = "focused_window"
 
-[[block]]
-block = "weather"
-format = " {weather} {temp}°"
-service = { name = "openweathermap", api_key = "$(cat ~/keys/openweathermap)", city_id="5206379", units="metric" }
+# [[block]]
+# block = "weather"
+# format = " {weather} {temp}°"
+# service = { name = "openweathermap", api_key = "$(cat ~/keys/openweathermap)", city_id="5206379", units="metric" }
 
 [[block]]
 block = "custom"
