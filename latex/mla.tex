@@ -1,42 +1,30 @@
 \documentclass[12pt]{article}
 
-%
-%Template Variables
-%
+%%%% Template Variables (change these)
 \newcommand{\papertitle}{Paper Title}
 \newcommand{\authorfirst}{James}
 \newcommand{\authorlast}{Fenn}
 \newcommand{\paperclass}{Class}
 \newcommand{\paperprof}{Professor}
 
-%
-%Margin - 1 inch on all sides
-%
+% Margin - 1 inch on all sides
 \usepackage[letterpaper]{geometry}
 \usepackage{times}
 \geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
 
-%
-%Doublespacing
-%
+% Doublespacing
 \usepackage{setspace}
 \doublespacing
 
-%
-%Rotating tables (e.g. sideways when too long)
-%
+% Rotating tables (e.g. sideways when too long)
 \usepackage{rotating}
 
-%
-%Proper MLA date format ()
-%
+% Proper MLA date format (5 January 2010)
 \usepackage{datetime}
 \newdateformat{mladate}{\THEDAY\ \monthname[\THEMONTH] \THEYEAR}
 \mladate
 
-%
-%PDF file metadata.
-%
+% PDF file metadata.
 \pdfinfo{
     /Author (\authorfirst~\authorlast)
     /Title (\papertitle)
@@ -44,9 +32,7 @@
     /ModDate (D:\pdfdate)
 }
 
-%
-%Fancy-header package to modify header/page numbering (insert last name)
-%
+% Fancy-header package to modify header/page numbering (insert last name)
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{} 
@@ -57,53 +43,67 @@
 \rfoot{} 
 \renewcommand{\headrulewidth}{0pt} 
 \renewcommand{\footrulewidth}{0pt} 
-%To make sure we actually have header 0.5in away from top edge
-%12pt is one-sixth of an inch. Subtract this from 0.5in to get headsep value
+% To make sure we actually have header 0.5in away from top edge
+% 12pt is one-sixth of an inch. Subtract this from 0.5in to get headsep value
 \setlength\headsep{0.333in}
 
-%
-%Works cited environment
-%(to start, use \begin{workscited...}, each entry preceded by \bibent)
-% - from Ryan Alcock's MLA style file
-%
+% Works cited environment
+% (to start, use \begin{workscited...}, each entry preceded by \bibent)
+%  - from "Ryan Alcock's MLA style file"
 \newcommand{\bibent}{\noindent \hangindent 40pt}
 \newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
 
 
-%
-%Begin document
-%
+% Begin document
 \begin{document}
 \begin{flushleft}
 
-%%%%First page name, class, etc
+% MLA Header
 \authorfirst~\authorlast\\
 \paperprof\\
 \paperclass\\
 \today\\
 
-
-%%%%Title
+% Title
 \begin{center}
 \papertitle
 \end{center}
 
-
-%%%%Changes paragraph indentation to 0.5in
+%%%% Changes paragraph indentation to 0.5in
 \setlength{\parindent}{0.5in}
-%%%%Begin body of paper here
+%%%% Begin body of paper here
 
-Lorem ipsum dolor sit amet, "consectetur,/ adipisicing" elit (Cicero 39), sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Purus semper eget duis at. Est ante in nibh mauris cursus mattis molestie.
+Nulla aliquet enim tortor at auctor. Praesent elementum facilisis leo vel fringilla est ullamcorper.
+Arcu dui vivamus arcu felis. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Libero
+volutpat sed cras ornare arcu dui vivamus. Nisl purus in mollis nunc sed id. In ornare quam viverra
+orci sagittis eu volutpat odio facilisis. Turpis nunc eget lorem dolor sed viverra. Semper eget duis
+at tellus. Ac auctor augue mauris augue. Pretium viverra suspendisse potenti nullam ac tortor vitae
+purus faucibus. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Neque gravida in fermentum
+et. Iaculis urna id volutpat lacus. Id velit ut tortor pretium viverra suspendisse potenti. Turpis
+tincidunt id aliquet risus feugiat in ante metus.\footnotemark
 
-At vero eos et accusamus\footnotemark  et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+Interdum consectetur libero id faucibus. Tempus quam pellentesque nec nam aliquam sem et tortor
+consequat. Libero id faucibus nisl tincidunt eget nullam non. Habitant morbi tristique senectus et
+netus et malesuada. Orci sagittis eu volutpat odio facilisis mauris sit amet. Suscipit adipiscing
+bibendum est ultricies. Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Tristique
+sollicitudin nibh sit amet commodo nulla facilisi nullam. Scelerisque fermentum dui faucibus in
+ornare. At ultrices mi tempus imperdiet. Viverra orci sagittis eu volutpat. Amet facilisis magna
+etiam tempor orci eu lobortis. Id neque aliquam vestibulum morbi blandit cursus risus at ultrices.
+Nulla aliquet enim tortor at. Lacus laoreet non curabitur gravida arcu.
 
-Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+Curabitur vitae nunc sed velit dignissim sodales ut eu sem. Aliquam nulla facilisi cras fermentum
+odio eu. Mauris ultrices eros in cursus turpis massa tincidunt. Id diam vel quam elementum pulvinar
+etiam non. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Mauris pharetra et ultrices
+neque ornare aenean euismod elementum. Amet massa vitae tortor condimentum lacinia quis vel eros
+donec. Arcu bibendum at varius vel pharetra. Non arcu risus quis varius quam quisque id. Augue eget
+arcu dictum varius duis at. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Pretium
+nibh ipsum consequat nisl vel.
 \newpage
 
 
-%%%%Title
+%%%% Title
 \begin{center}
 Notes
 \end{center}
@@ -111,25 +111,25 @@ Notes
 
 \setlength{\parindent}{0.5in}
 
-1. Danhof includes “Delaware, Maryland, all states north of the Potomac and Ohio rivers, Missouri, and states to its north” when referring to the northern states (11).
+1. Something something something fun (1).
 
 
-2. For the purposes of this paper,“science” is defined as it was in nineteenthcentury agriculture: conducting experiments and engaging in research.
+2. Hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh.
 
 
-3. Please note that any direct quotes from the nineteenth century texts are writtenin their original form, which may contain grammar mistakes according to twenty-first century grammar rules.
+3. Please note that fried potato should not be considered a vegetable in one's diet.
 
-%%%%Works cited
+%%%% Works cited
 \begin{workscited}
 
 \bibent
-Allen, R.L. \textit{The American Farm Book; or Compend of Ameri can Agriculture; Being a Practical Treatise on Soils, Manures, Draining, Irrigation, Grasses, Grain, Roots, Fruits, Cotton, Tobacco, Sugar Cane, Rice, and Every Staple Product of the United States with the Best Methods of Planting, Cultivating, and Prep aration for Market.} New York: Saxton, 1849. Print.
+Doe, John. \textit{Every food in America is made out of corn.}, 2004. Print.
 
 \bibent
-Baker, Gladys L., Wayne D. Rasmussen, Vivian Wiser, and Jane M. Porter. \textit{Century of Service: The First 100 Years of the United States Department of Agriculture.}[Federal Government], 1996. Print.
+Applewood, Monty. \textit{Encryption algorithms, entropy, and the blockchain: Computers Are Bad.}[Federal Government], 1992. Print.
 
 \bibent
-Danhof, Clarence H. \textit{Change in Agriculture: The Northern United States, 1820-1870.} Cambridge: Harvard UP, 1969. Print.
+Aaaaaaa, AAAAAA A. \textit{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA} Cambridge: Harvard, 2017. Print.
 
 
 \end{workscited}
