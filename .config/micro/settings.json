@@ -31,7 +31,7 @@
     "savecursor": false,
     "savehistory": true,
     "saveundo": false,
-    "scrollbar": false,
+    "scrollbar": true,
     "scrollmargin": 3,
     "scrollspeed": 2,
     "softwrap": false,
@@ -42,7 +42,7 @@
     "syntax": true,
     "tabmovement": false,
     "tabsize": 4,
-    "tabstospaces": false,
+    "tabstospaces": true,
     "termtitle": false,
     "trimdiff": false,
     "useprimary": true
