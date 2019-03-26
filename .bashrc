@@ -5,8 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-
 # Escaped ANSI colors...
 BLD="\[\e[21m\]"
 BLK="\[\e[30m\]"
@@ -29,13 +27,18 @@ RESET="\[\e[0m\]"
 
 # Obtain current git branch
 function parse_git_branch() {
-	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-	if [ ! "${BRANCH}" == "" ]
-	then
-		echo "[${BRANCH}] "
-	else
-		echo ""
-	fi
+    BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+    if [ ! "${BRANCH}" == "" ]
+    then
+        if [ ! "$(git diff --name-only)" == "" ]
+        then
+            echo "[${BRANCH}]* "
+        else
+            echo "[${BRANCH}] "
+        fi
+    else
+        echo ""
+    fi
 }
 
 # Custom prompt
@@ -78,3 +81,9 @@ gcc() { /usr/bin/gcc $@ -Wall -Werror -o ${1%.*}; }
 
 # gccx - runs gcc (the alias above), then executes the compiled binary.
 gccx() { gcc $@ && command $(realpath "${1%.*}"); }
+
+# ----- discord alias -----
+
+discord() { (cd ~/js/PreMiD/src; npm start) & /usr/bin/discord; }
+
+alias ls="ls --color=none -F"
