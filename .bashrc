@@ -61,6 +61,10 @@ export PATH="$PATH:/home/james/bin"
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# ----- micro alias -----
+# All this really does is set the $TERM variable to something usable.
+alias micro="TERM=rxvt-unicode-256color micro"
+
 # ----- gcc aliases -----
 
 # gcc  - acts as an alias of gcc; enables all warning flags, treats warnings as
