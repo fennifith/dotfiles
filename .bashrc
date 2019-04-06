@@ -66,6 +66,10 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
+# ----- micro alias -----
+# All this really does is set the $TERM variable to something usable.
+alias micro="TERM=rxvt-unicode-256color micro"
+
 # ----- gcc aliases -----
 
 # gcc  - acts as an alias of gcc; enables all warning flags, treats warnings as
