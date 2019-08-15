@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Sets display settings for multiple monitors
+# at runtime, without the need to restart i3.
+
+if  xrandr | grep -1 "$2 d"; then
+    xrandr --output "$2" --off
+else
+    xrandr --output "$2" --auto
+    xrandr --output "$2" --left-of "$1"
+fi
+
+sh ~/.fehbg

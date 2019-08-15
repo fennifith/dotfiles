@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+sudo archlinux-java set java-8-jdk
+java -jar ~/java/Logisim/logisim.jar $@
