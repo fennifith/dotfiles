@@ -6,9 +6,10 @@
 	ui = true
 	pager = true
 [user]
-	email = 18jafenn90@gmail.com
+	email = me@jfenn.me
 	name = James Fenn
 [core]
 	autocrlf = input
 [diff]
 	colorMoved = dimmed_zebra
+	tool = bat

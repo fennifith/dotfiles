@@ -8,10 +8,10 @@
 #   displays LVDS-1 VGA-1
 
 if  xrandr | grep -1 "$2 d"; then
-    xrandr --output "$2" --off
+    xrandr -d :0.0 --output "$2" --off
 else
-    xrandr --output "$2" --auto
-    xrandr --output "$2" --left-of "$1"
+    xrandr -d :0.0 --output "$2" --auto
+    xrandr -d :0.0 --output "$2" --left-of "$1"
 fi
 
-sh ~/.fehbg
+feh --recursive --randomize --bg-fill --no-fehbg /home/james/hdd/Users/Admin/Pictures/Wallpapers/scenery

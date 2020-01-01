@@ -42,7 +42,8 @@ function parse_git_branch() {
 }
 
 # Custom prompt
-export PS1="${LMAG}\u${WHT}@${LCYN}\h${RESET} \W ${YEL}\`parse_git_branch\`${RESET}\$ "
+export PROMPTCHAR=$'\xE2\x80\xBA'
+export PS1="${LMAG}\u${WHT}@${LCYN}\h${RESET} \W ${YEL}\`parse_git_branch\`${RESET}\n${PROMPTCHAR} "
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
@@ -54,7 +55,8 @@ EDITOR=/usr/bin/nano
 export GEM_HOME="/home/james/gems"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:/root/.gem/ruby/2.5.0/bin"
-export PATH="$PATH:/home/james/.gem/ruby/*/bin"
+export PATH="$PATH:/home/james/.gem/ruby/2.5.0/bin"
+export PATH="$PATH:/home/james/.gem/ruby/2.6.0/bin"
 export PATH="$PATH:/home/james/flutter/bin"
 export PATH="$PATH:/home/james/bin"
 
@@ -91,8 +93,17 @@ gcc() { /usr/bin/gcc $@ -Wall -Werror -o ${1%.*}; }
 # gccx - runs gcc (the alias above), then executes the compiled binary.
 gccx() { gcc $@ && command $(realpath "${1%.*}"); }
 
-# ----- discord alias -----
-
-discord() { (cd ~/js/PreMiD/src; npm start) & /usr/bin/discord; }
-
+alias discord="ripcord"
 alias ls="ls --color=none -F"
+
+# Dir aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias exa="exa --header"

@@ -54,8 +54,9 @@ block = "sound"
 [[block]]
 block = "battery"
 upower = true
+format = "{percentage}% {time}"
 
 [[block]]
 block = "time"
-interval = 60
-format = "%e %B %Y - %H:%M:%S"
+interval = 1
+format = "%e %B(%m) %Y - %H:%M:%S"
