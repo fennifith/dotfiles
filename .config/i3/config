@@ -42,6 +42,9 @@ bindsym $mod+Return exec termite
 # kill focused window
 bindsym $mod+Shift+x kill
 
+# open https://github.com/fennifith/announcer
+bindsym $mod+Shift+a exec announce
+
 # sleeeeeeeeeepy sleep
 bindsym $mod+Escape exec systemctl suspend
 
