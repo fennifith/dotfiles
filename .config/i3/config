@@ -222,5 +222,8 @@ client.background       #000000
 
 new_window 1pixel
 exec "xrandr --output VGA-1 --auto --left-of LVDS-1"
-exec "compton -b && ~/.fehbg"
+exec "picom -b"
+exec ~/.fehbg
+exec start_jack
+exec parcellite
 exec termite
