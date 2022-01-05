@@ -4,7 +4,7 @@ allow_bold = true
 #bold_is_bright = true
 clickable_url = true
 #dynamic_title = true
-font = Roboto Mono, Regular 9
+font = Fira Code, Regular 9
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -41,17 +41,19 @@ scrollback_lines = 10000
 [colors]
 
 # special
-foreground      = #e5e5e5
-foreground_bold = #e5e5e5
-cursor          = #e5e5e5
-background      = rgba(0, 0, 0, 0.8)
+# foreground      = #ab9cff
+# foreground      = #a493fa
+foreground      = #ffffff
+foreground_bold = #8670ff
+cursor          = #ffffff
+background      = #151221
 
 # black
 color0  = #404040
 color8  = #808080
 
 # red
-color1  = #ff5252
+color1  = #ff5262
 color9  = #ff8a80
 
 # green
@@ -67,8 +69,10 @@ color4  = #0088ff
 color12 = #70bcff
 
 # magenta
-color5  = #d831b0
-color13 = #ff71e8
+# color5  = #4b2bff
+# color13 = #7961ff
+color5  = #8670ff
+color13 = #a493fa
 
 # cyan
 color6  = #008899

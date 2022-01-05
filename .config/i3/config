@@ -46,7 +46,7 @@ bindsym $mod+Shift+x kill
 bindsym $mod+Shift+a exec announce
 
 # sleeeeeeeeeepy sleep
-bindsym $mod+Escape exec systemctl suspend
+bindsym $mod+Escape exec "sleep 1; xset dpms force off; i3lock -c 000000"
 
 # start dmenu (a program launcher)
 # bindsym Mod1+d exec dmenu_run
@@ -82,10 +82,10 @@ bindsym $mod+Shift+f fullscreen toggle
 # bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-# bindsym $mod+Shift+f floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 # bindsym Mod1+a focus parent
@@ -101,8 +101,12 @@ bindsym $mod+space focus mode_toggle
 # bindsym Mod1+minus scratchpad show
 
 # i3-gaps global gap sizes (default for all workspaces)
-gaps outer 4
-gaps inner 8
+gaps outer -8
+gaps inner 32
+
+# i3-gaps border radius
+# border_radius 4
+# for_window [class="^.*"] border pixel 0
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -118,16 +122,16 @@ set $ws9 "9"
 set $ws10 "10"
 
 # define workspace output
-workspace 1 output primary
-workspace 2 output primary
-workspace 3 output primary
-workspace 4 output primary
-workspace 5 output primary
-workspace 6 output VGA-1
-workspace 7 output VGA-1
-workspace 8 output VGA-1
-workspace 9 output VGA-1
-workspace 10 output VGA-1
+workspace 1 output LVDS-1-1 LVDS-1
+workspace 2 output LVDS-1-1 LVDS-1
+workspace 3 output LVDS-1-1 LVDS-1
+workspace 4 output LVDS-1-1 LVDS-1
+workspace 5 output LVDS-1-1 LVDS-1
+workspace 6 output HDMI-A-0 VGA-1
+workspace 7 output HDMI-A-0 VGA-1
+workspace 8 output HDMI-A-0 VGA-1
+workspace 9 output HDMI-A-0 VGA-1
+workspace 10 output HDMI-A-0 VGA-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -189,41 +193,45 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    height 16
-    i3bar_command i3bar -t
-    status_command /usr/bin/i3status-rs ~/.config/i3status-rs/config.toml
+#bar {
+#    height 16
+#    i3bar_command i3bar -t
+#    status_command /usr/bin/i3status-rs ~/.config/i3status-rs/config.toml
     
-	font pango:Roboto Mono, FontAwesome 8
-	position bottom
-
-	colors {
+#	font pango:Roboto Mono, FontAwesome 8
+#	position bottom
+#
+#	colors {
 #	   | class			   | bordr | bg    | text  |	
-		background			#00000000
-		statusline			#FFFFFF
-		separator			#424242
+#		background			#00000000
+#		statusline			#FFFFFF
+#		separator			#424242
 #	   |				   |       |       |       |	
-		focused_workspace	#20B684 #20B684 #000000
-		active_workspace	#333333 #222222 #FFFFFF
-		inactive_workspace	#333333 #222222 #888888
-		urgent_workspace	#333333 #FF5252 #000000
-		binding_mode		#FFDE03 #FFDE5B #000000
-	}
-}
+#		focused_workspace	#20B684 #20B684 #000000
+#		active_workspace	#333333 #222222 #FFFFFF
+#		inactive_workspace	#333333 #222222 #888888
+#		urgent_workspace	#333333 #FF5252 #000000
+#		binding_mode		#FFDE03 #FFDE5B #000000
+#	}
+#}
 
-# class				   | bordr | bg    | text  | indcr  | sub-brdr |
-client.focused          #20B684 #000000 #FFFFFF #20B684   #20B684
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #FF5252 #FF5252 #000000 #FF5252   #FF5252
+for_window [class="^.*"] border pixel 1
+
+# class                | border | bg    | text  | indcr  | sub-brdr |
+client.focused          #FF5555 #000000 #FFFFFF #c9bfff   #c9bfff
+client.focused_inactive #c9bfff #5F676A #FFFFFF #c9bfff   #5F676A
+client.unfocused        #c9bfff #222222 #888888 #c9bfff   #222222
+client.urgent           #FF9191 #FF5252 #000000 #FF9191   #FF5252
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #000000
 
 new_window 1pixel
-exec "xrandr --output VGA-1 --auto --left-of LVDS-1"
-exec "picom -b"
+exec "xrandr --output LVDS-1 --auto --left-of VGA-1"
+# exec "killall -q picom; picom -b"
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id "killall -q dunst; dunst"
+exec --no-startup-id "killall -q python an2linuxserver; an2linuxserver"
 exec ~/.fehbg
-exec start_jack
 exec parcellite
-exec termite
+exec "i3-msg workspace 1; vivaldi-stable"
