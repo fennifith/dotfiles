@@ -1,0 +1,2 @@
+#!/bin/bash
+firejail --apparmor --seccomp --private=$HOME/.zoom zoom

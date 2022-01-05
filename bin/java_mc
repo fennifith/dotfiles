@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# echo "FULL ARGS: $@" >> /home/james/mc.log
+if [ "$1" == "-jar" ]; then
+	echo "BYPASSING VERSION CHECK" >> /home/james/mc.log
+	exit 0
+fi
+
+# Minecraft version argument
+_mcver=$(echo "$@" | sed 's/.*--version \([^ ]*\).*/\1/')
+_mc=$(echo "${_mcver}" | sed 's/.*-//')
+
+echo "MINECRAFT VERSION TYPE: ${_mcver}" >> /home/james/mc.log
+echo "MINECRAFT VERSION ARG: ${_mc}" >> /home/james/mc.log
+
+# Set Java runtime version:
+# Java 8 for 1.16: java 16 for 1.17: java 17 for 1.18
+if [[ $_mc == 1.6* ]]; then
+	_javadir='java-6-jdk'
+elif [[ $_mc == 1.16* ]]; then
+	_javadir='java-8-jdk'
+elif [[ $_mc == 1.17* ]]; then
+	_javadir='java-16-adoptopenjdk'
+elif [[ $_mc == 1.18* ]]; then
+	_javadir='java-17-openjdk'
+else
+	_javadir='default'
+fi
+
+if [ -d /usr/lib/jvm/$_javadir ]; then
+	export PATH="/usr/lib/jvm/${_javadir}/bin:$PATH"
+	echo "USING JAVA ${_javadir}" >> /home/james/mc.log
+fi
+
+# Link mods dir
+MINECRAFT_HOME='/home/james/.minecraft'
+_mcmods="${MINECRAFT_HOME}/mods-${_mc}"
+echo "CHECKING MOD DIR: ${_mcmods}" >> /home/james/mc.log
+if [ -d $_mcmods ]; then
+	echo "LOADING MODS FROM: ${_mcmods}" >> /home/james/mc.log
+	rm -f ${MINECRAFT_HOME}/mods
+	ln -s $_mcmods ${MINECRAFT_HOME}/mods
+fi
+
+echo "STARTING MC" >> /home/james/mc.log
+
+# echo "Setting DRI_PRIME=1"
+# DRI_PRIME=1 vblank_mode=0
+#export GALLIUM_HUD="simple,fps"
+java "$@" 2>&1 >> /home/james/mc.log
