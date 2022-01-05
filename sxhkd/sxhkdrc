@@ -1,5 +1,0 @@
-ctrl + alt + {Up,Down,Left,Right}
-	mpc {toggle,stop,prev,next}
-
-ctrl + shift + x
-	sudo killall /usr/bin/xinit

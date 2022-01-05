@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Escaped ANSI colors...
+BOLD="\[\033[1m\]"
 BLD="\[\e[21m\]"
 BLK="\[\e[30m\]"
 RED="\[\e[31m\]"
@@ -28,7 +29,7 @@ RESET="\[\e[0m\]"
 # Obtain current git branch
 function parse_git_branch() {
     BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-    if [ ! "${BRANCH}" == "" ]
+    if [ ! "${BRANCH}" == "" ];
     then
         if [ ! "$(git diff --name-only)" == "" ]
         then
@@ -43,9 +44,10 @@ function parse_git_branch() {
 
 # Custom prompt
 export PROMPTCHAR=$'\xE2\x80\xBA'
-export PS1="${LMAG}\u${WHT}@${LCYN}\h${RESET} \W ${YEL}\`parse_git_branch\`${RESET}\n${PROMPTCHAR} "
+export PS1="${BOLD}${LMAG}\u${RED}@\h${LRED} \W ${YEL}\`parse_git_branch\`${RESET}\n${LMAG}${PROMPTCHAR} ${LMAG}"
+trap 'echo -ne "\e[0m"' DEBUG
 
-if [ -e ~/.bashrc.aliases ] ; then
+if [ -e ~/.bashrc.aliases ]; then
    source ~/.bashrc.aliases
 fi
 # >>> Added by cnchi installer
@@ -55,10 +57,12 @@ EDITOR=/usr/bin/nano
 export GEM_HOME="/home/james/gems"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:/root/.gem/ruby/2.5.0/bin"
-export PATH="$PATH:/home/james/.gem/ruby/2.5.0/bin"
+export PATH="$PATH:/home/james/.local/share/gem/ruby/3.0.0/bin"
 export PATH="$PATH:/home/james/.gem/ruby/2.6.0/bin"
+export PATH="$PATH:/home/james/.gem/ruby/2.5.0/bin"
 export PATH="$PATH:/home/james/flutter/bin"
 export PATH="$PATH:/home/james/bin"
+export PATH="$PATH:/home/james/.local/bin"
 
 export GOPATH="/home/james/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -68,9 +72,16 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
+# Haskell / Cabal install dir
+export PATH="$PATH:/home/james/.cabal/bin"
+
+# Yarn install dir
+export PATH="$PATH:$(yarn global bin)"
+
 # ----- micro alias -----
 # All this really does is set the $TERM variable to something usable.
 alias micro="TERM=rxvt-unicode-256color micro"
+export MICRO_TRUECOLOR=1
 
 # ----- gcc aliases -----
 
@@ -93,7 +104,6 @@ gcc() { /usr/bin/gcc $@ -Wall -Werror -o ${1%.*}; }
 # gccx - runs gcc (the alias above), then executes the compiled binary.
 gccx() { gcc $@ && command $(realpath "${1%.*}"); }
 
-alias discord="ripcord"
 alias ls="ls --color=none -F"
 
 # Dir aliases
@@ -109,3 +119,23 @@ export NVM_DIR="$HOME/.nvm"
 alias exa="exa --header"
 alias xcopy="xclip -sel clip"
 alias xpaste="xclip -o -sel clip"
+alias scrot="( cd ~/scrots && scrot --select --delay 2 )"
+alias open="xdg-open"
+
+alias owo="tr lr w | tr LR W"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/james/bin/google-cloud-sdk/path.bash.inc' ]; then . '/home/james/bin/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/james/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/home/james/bin/google-cloud-sdk/completion.bash.inc'; fi
+
+# https://stackoverflow.com/questions/64010263/attributeerror-module-importlib-has-no-attribute-util
+export CLOUDSDK_PYTHON=python2
+
+# qt settings
+unset QT_STYLE_OVERRIDE
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# https://aur.archlinux.org/packages/mesa-git/
+export MESA_WHICH_LLVM=1

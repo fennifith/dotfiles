@@ -1,15 +1,25 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = true
-	pager = true
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
+
+[color "branch"]
+  remote = yellow
 [user]
 	email = me@jfenn.me
 	name = James Fenn
-[core]
-	autocrlf = input
-[diff]
-	colorMoved = dimmed_zebra
-	tool = bat
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P

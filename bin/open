@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-'use strict';
-
-const _opn = require('opn');
-
-for (let i = 2; i < process.argv.length; i++)
-	_opn(process.argv[i]);

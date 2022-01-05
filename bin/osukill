@@ -1,6 +1,0 @@
-#!/bin/sh
-
-export vblank_mode=0
-export WINEARCH=win32
-export WINEPREFIX=$HOME/osu-wine
-wineserver -k

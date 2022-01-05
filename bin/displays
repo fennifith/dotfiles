@@ -14,4 +14,4 @@ else
     xrandr -d :0.0 --output "$2" --left-of "$1"
 fi
 
-feh --recursive --randomize --bg-fill --no-fehbg /home/james/hdd/Users/Admin/Pictures/Wallpapers/scenery
+~/.fehbg

@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-
-~/Downloads/Programs/android-studio-ide-*-linux/android-studio/bin/studio.sh
