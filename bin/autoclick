@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# ex: _sendAction mousedown 0
+function _sendAction {
+	local action=$1
+	local button=$2
+
+	# search for Minecraft windows
+	local pids=$(xdotool search --class "Minecraft")
+	for pid in $pids; do
+		# get window name/id
+		local name="$(xdotool getwindowname $pid)"
+		local window_id=$(printf 0x"%x\n" $pid)
+
+		if [[ $name == *"Minecraft"* ]]; then
+			# click once for button
+			xdotool $action --clearmodifiers --window $window_id $button
+		fi
+	done
+}
+
+# ex: _sendButton click both
+function _sendButton {
+	local action=$1
+	local button=$2
+
+	if [ "$button" == "place" ] || [ "$button" == "use" ]; then
+		_sendAction "$action" 3
+	elif [ "$button" == "both" ]; then
+		_sendAction "$action" 3
+		_sendAction "$action" 1
+	elif [ "$button" == "shift" ]; then
+		# my sneak button is a mouse keybind (not the default)
+		_sendAction "$action" 8
+	elif [ "$button" == "pick" ]; then
+		_sendAction "$action" 2
+	else
+		_sendAction "$action" 1
+	fi
+}
+
+# ex: _sendKey keydown w
+function _sendKey {
+	local action=$1
+	local key=$2
+
+	if [ "$key" == "w" ]; then
+		_sendAction "$action" 25
+	fi
+}
+
+_task=$1
+_button=$2
+
+if [ "$_task" == "afk" ]; then
+	while true; do
+		_sendButton 'click --repeat 100 --delay 1000' $_button
+
+		# eat food occasionally
+		_sendButton mousedown use
+		sleep 3
+		_sendButton mouseup use
+	done
+elif [ "$_task" == "spam" ]; then
+	while true; do
+		_sendButton click $_button
+	done
+elif [ "$_task" == "hold" ]; then
+	# release button on exit signal
+	trap "_sendButton mouseup ${_button}" 0
+
+	while true; do
+		echo 'Sending mousedown event'
+		_sendButton mousedown $_button
+		# wait 500s, then refresh keys
+		sleep 500
+	done
+elif [ "$_task" == "build" ]; then
+	# release place-button on exit signal
+	trap '_sendButton mouseup place' 0
+
+	while true; do
+		# reset place key
+		_sendButton mouseup place
+		sleep 0.2
+
+		# sneak (to avoid falling off) - my sneak button is a mouse keybind (not the default)
+		_sendButton mousedown shift
+
+		# pick block
+		_sendButton mousedown pick
+		# place block
+		_sendButton mousedown place
+		# walk forwards
+		_sendKey keydown w
+
+		sleep 5
+	done
+fi

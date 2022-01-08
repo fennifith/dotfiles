@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# $1 = performance level (0-7) for pp_dpm_sclk
+#
+# https://www.reddit.com/r/linux_gaming/comments/9a144m/amdgpu_driver_freezes_and_faults_on_vulkanopengl/ea9h641/
+
+LEVEL=$1
+
+if [ "$LEVEL" == "" ]; then
+	cat /sys/class/drm/card0/device/power_dpm_force_performance_level
+	cat /sys/class/drm/card0/device/pp_dpm_sclk
+	exit 0
+fi
+
+echo manual | sudo tee /sys/class/drm/card0/device/power_dpm_force_performance_level || exit 1
+echo $LEVEL | sudo tee /sys/class/drm/card0/device/pp_dpm_sclk && echo manual | sudo tee /sys/class/drm/card0/device/power_dpm_force_performance_level && echo $LEVEL | sudo tee /sys/class/drm/card0/device/pp_dpm_sclk
