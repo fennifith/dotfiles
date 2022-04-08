@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # start streampods overlay
-( cd ~/dev/js/streampods; nvm use; make ) &
+( cd ~/repo/oceanbit/streampods; . ~/.nvm/nvm.sh && nvm use; make ) &
 sleep 10
 
 # open VLC (cc music)
@@ -11,7 +11,7 @@ if [ -z "$MUSICTYPE" ]; then
 fi
 
 i3-msg workspace 3
-vlc --loop --no-playlist-autostart ~/hdd/Users/Admin/Music/cc/${MUSICTYPE}/*/*.mp3 ~/hdd/Users/Admin/Music/cc/${MUSICTYPE}/*/*/*.flac &
+vlc --loop --no-playlist-autostart ~/music/cc/${MUSICTYPE}/*/*.mp3 ~/music/cc/${MUSICTYPE}/*/*/*.flac &
 #qmmp &
 sleep 5
 

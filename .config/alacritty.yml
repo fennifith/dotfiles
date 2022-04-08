@@ -1,0 +1,18 @@
+window:
+  padding:
+    x: 16
+    y: 16
+
+colors:
+  primary:
+    background: '#151221'
+    foreground: '#ffffff'
+
+font:
+  normal:
+    family: "Fira Code"
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On

@@ -16,19 +16,19 @@ echo "MINECRAFT VERSION ARG: ${_mc}" >> /home/james/mc.log
 # Set Java runtime version:
 # Java 8 for 1.16: java 16 for 1.17: java 17 for 1.18
 if [[ $_mc == 1.6* ]]; then
-	_javadir='java-6-jdk'
+	_javadir='6'
 elif [[ $_mc == 1.16* ]]; then
-	_javadir='java-8-jdk'
+	_javadir='8'
 elif [[ $_mc == 1.17* ]]; then
-	_javadir='java-16-adoptopenjdk'
+	_javadir='16'
 elif [[ $_mc == 1.18* ]]; then
-	_javadir='java-17-openjdk'
+	_javadir='17'
 else
-	_javadir='default'
+	_javadir='17'
 fi
 
 if [ -d /usr/lib/jvm/$_javadir ]; then
-	export PATH="/usr/lib/jvm/${_javadir}/bin:$PATH"
+	export PATH="$(echo /usr/lib/jvm/*-${_javadir}-*/bin):$PATH"
 	echo "USING JAVA ${_javadir}" >> /home/james/mc.log
 fi
 

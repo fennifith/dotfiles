@@ -1,0 +1,24 @@
+# Using multiple audio sources with OBS:
+#   https://miyacogbf.github.io/mlgb/only-game-sound/#configure-pulseaudio
+#   https://obsproject.com/forum/resources/include-exclude-audio-sources-using-pulseaudio-linux.95/
+
+# First, load system-wide default setting
+# The path of system-wide setting file may differ from your system, please check yours
+.include /etc/pulse/default.pa
+
+# Create a new `null-sink`
+# Freely choose `sink_name` field, but as it is used in the following settings, don't forget it
+load-module module-null-sink sink_name=OBSRecordingSink
+
+# Make display name of the created `null-sink`
+# The first argument must be same as the above `sink_name`
+update-sink-proplist OBSRecordingSink device.description=OBSRecordingSink
+
+# Enable and configure loopback module
+# This configuration sets output of the `null-sink` to your default output
+# Set `<sink_name>.monitor` to the source field (note: add `.monitor` to the null-sink name created above)
+# `sink` field should be the name of your default output checked above by `pacmd` command
+# `adjust_time` field should be `0` and disable it
+# Set `latency_msec` field to the lowest value, `1` (200 msec latency by default)
+# *Change `format` and `rate` field depending on your system*, or simply remove them
+load-module module-loopback source=OBSRecordingSink.monitor sink=alsa_output.usb-Sennheiser_electronic_GmbH___Co._KG_PXC_550-II_KG0000001001001B66B44860-00.analog-stereo adjust_time=0 latency_msec=1 format=s16le rate=48000 channels=2

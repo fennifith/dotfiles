@@ -59,7 +59,7 @@ padding-right = 4
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = pango:Roboto Mono:fontformat=truetype:antialias=false:pixelsize=9;1
+font-0 = RobotoMono:fontformat=truetype:antialias=false:pixelsize=9;1
 ;font-0 = misc fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 ;font-2 = siji:pixelsize=10;0.5
@@ -232,9 +232,9 @@ bar-volume-foreground-0 = ${colors.alert}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = —
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = —
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
