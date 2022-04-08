@@ -1,0 +1,10 @@
+[Unit]
+Description=Set AMDGPU level
+
+[Service]
+Restart=always
+RestartSec=60s
+ExecStart=/usr/bin/bash /home/james/bin/set_amdgpu_level 5
+
+[Install]
+WantedBy=multi-user.target
