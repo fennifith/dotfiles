@@ -27,14 +27,23 @@ else
 	_javadir='17'
 fi
 
+_java='java'
 if [ -d /usr/lib/jvm/$_javadir ]; then
+	_java="$(echo /usr/lib/jvm/*-${_javadir}-*/bin)/java"
 	export PATH="$(echo /usr/lib/jvm/*-${_javadir}-*/bin):$PATH"
-	echo "USING JAVA ${_javadir}" >> /home/james/mc.log
+	echo "USING JAVA ${_javadir} -> ${_java}" >> /home/james/mc.log
 fi
 
 # Link mods dir
 MINECRAFT_HOME='/home/james/.minecraft'
-_mcmods="${MINECRAFT_HOME}/mods-${_mc}"
+
+_typedir=''
+if [[ $_mcver == *-forge-* ]]; then
+        _typedir="-forge"
+	echo 'this is forge!' >> /home/james/mc.log
+fi
+
+_mcmods="${MINECRAFT_HOME}/mods${_typedir}-${_mc}"
 echo "CHECKING MOD DIR: ${_mcmods}" >> /home/james/mc.log
 if [ -d $_mcmods ]; then
 	echo "LOADING MODS FROM: ${_mcmods}" >> /home/james/mc.log
@@ -47,4 +56,4 @@ echo "STARTING MC" >> /home/james/mc.log
 # echo "Setting DRI_PRIME=1"
 # DRI_PRIME=1 vblank_mode=0
 #export GALLIUM_HUD="simple,fps"
-java "$@" 2>&1 >> /home/james/mc.log
+java "$@" 2>&1 >> /home/james/mc-runtime.log

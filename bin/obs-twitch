@@ -2,7 +2,7 @@
 
 # start streampods overlay
 ( cd ~/repo/oceanbit/streampods; . ~/.nvm/nvm.sh && nvm use; make ) &
-sleep 10
+sleep 5
 
 # open VLC (cc music)
 MUSICTYPE="$1"
@@ -10,21 +10,26 @@ if [ -z "$MUSICTYPE" ]; then
 	MUSICTYPE='chill'
 fi
 
-i3-msg workspace 3
+i3-msg workspace 8
 vlc --loop --no-playlist-autostart ~/music/cc/${MUSICTYPE}/*/*.mp3 ~/music/cc/${MUSICTYPE}/*/*/*.flac &
 #qmmp &
-sleep 5
+sleep 2
 
 # open discord client & overlay
-i3-msg workspace 4
+i3-msg workspace 7
 discord &
-sleep 15
+sleep 10
 #discover-overlay &
 
+i3-msg workspace 9
+# obs --scene primary --startrecording &
+sleep 2
+
 # start audio-auto & obs + twitch chat
-i3-msg workspace 2
+i3-msg workspace 6
 # ( cd ~/dev/kt/audio-auto; gradle :example:run &> /dev/null ) &
-vivaldi-stable --new-window http://localhost:3000 https://twitch.tv/popout/moderator/fennifith/chat &
-nice -n -20 /usr/bin/obs
+vivaldi-stable --new-window http://localhost:3000 https://twitch.tv/popout/fennifith/chat &
+vivaldi-stable --new-window https://dashboard.twitch.tv/popout/u/fennifith/stream-manager/activity-feed &
+nice -n -20 /usr/bin/obs -m
 
 while kill %% 2>/dev/null; do sleep 0; done
